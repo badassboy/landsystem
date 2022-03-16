@@ -18,7 +18,13 @@ if (isset($_POST['register'])) {
         if ($requestMethod == "POST") {
             $register = $api->registerUser($firstName,$lastName,$email,$password,$registerType);
             if ($register) {
-                $msg = '<div class="alert alert-success" role="alert">Registration successful</div>';
+                $msg = '<div class="alert alert-success" role="alert">Registration successful.Check your 
+                email for confirmation email</div>';
+
+                $api->sendLink($email);
+
+
+
             }else {
                 $msg = '<div class="alert alert-success" role="alert">Registration Failed</div>';
             }

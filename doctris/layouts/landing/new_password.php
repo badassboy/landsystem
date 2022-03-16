@@ -3,22 +3,39 @@
 include("rest_api.php");
 $api = new Application();
 
-if (isset($_POST['forget'])) {
-    $email = $_POST['email'];
+$id = $_GET['id'];
+if (isset($_POST['update'])) {
+    $password = $_POST['password'];
+    $cpwd= $_POST['confirm_password'];
 
-    if (empty($email)) {
+    if (empty($password) || empty($cpwd)) {
         echo "field required";
     }else {
-        $send_email = $api->forgetPassword($email);
+        $send_email = $api->newPassword($password,$id);
         if ($send_email) {
-            echo "Check your email to reset your password";
+            echo "Password reset successfully";
         }else {
-            "Failed in sending email";
+            "Failed in updating password";
         }
     }
 }
-?>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ?>
 <!DOCTYPE html>
     <html lang="en">
 
@@ -75,20 +92,24 @@ if (isset($_POST['forget'])) {
                 <form class="login-form mt-4" method="post">
                     <div class="row">
                         <div class="col-lg-12">
-                            <p class="text-muted">Please enter your email address. You will receive a link to create a new password via email.</p>
+                            
                             <div class="mb-3">
-                                <label class="form-label">Email address <span class="text-danger">*</span></label>
-                                <input type="email" name="email" class="form-control" placeholder="Enter Your Email Address" name="email" required="">
+                                <label class="form-label">New Password<span class="text-danger">*</span></label>
+                                <input type="password" name="new_password" class="form-control" placeholder="New Password" required="required">
                             </div>
+
+                             <div class="mb-3">
+                                <label class="form-label">Confirm Password<span class="text-danger">*</span></label>
+                                <input type="password" name="confirm_password" class="form-control" placeholder="Confirm Password" required="required">
+                            </div>
+
                         </div>
                         <div class="col-lg-12">
                             <div class="d-grid">
-                <button type="submit" name="forget" class="btn btn-primary">Send</button>
+                <button type="submit" name="update" class="btn btn-primary">Update</button>
                             </div>
                         </div>
-                        <div class="mx-auto">
-                            <p class="mb-0 mt-3"><small class="text-dark me-2">Remember your password ?</small> <a href="login.html" class="text-dark h6 mb-0">Sign in</a></p>
-                        </div>
+                       
                     </div>
                 </form>
                             </div>

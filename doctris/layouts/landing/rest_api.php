@@ -4,7 +4,8 @@ include("database.php");
 
 class Application{
 
-	function registerUser($firstName,$lastName,$email,$password,$resgisterType){
+	function registerUser($firstName,$lastName,$email,$password,$resgisterType)
+	{
 	$msg = "";
 	$db = DB();
 	$secured_password = password_hash($password, PASSWORD_DEFAULT);
@@ -13,6 +14,7 @@ $stmt->execute([$firstName,$lastName,$email,$secured_password,$resgisterType]);
 $inserted = $stmt->rowCount();
 if ($inserted>0) {
 	return true;
+
 	
 }else {
 	
@@ -23,7 +25,77 @@ if ($inserted>0) {
 	
 }
 
-function loginUser($email,$password){
+
+public function sendLink($email){
+			$dbh = DB();
+
+			// validate email
+			
+				try{
+
+					// checking if user email already exist in the  system
+					$stmt = $dbh->prepare("SELECT * FROM users  WHERE email = ?");
+					$stmt->execute([$email]);
+					while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
+						$id = $data['id'];
+
+
+						// Send email to user with the token in a link they can click on
+							$to = $email;
+							
+							$subject = "Account Activation";
+							
+						// $msg = "Hi there, click on below link to reset your password<br> <a href=\"new_password.php?token=" . $token . "\">link</a>";
+
+		$msg = "Click <a href='www.xsoftgh.com/booking/admin/activate.php?id=$id'>here</a> to activate your account";
+									
+							   
+
+		  
+		   	$headers[] = 'MIME-Version: 1.0';
+		   	$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+		   
+		   $email_sent = mail($to, $subject, $msg, implode("\r\n", $headers));
+		   if ($email_sent) {
+		   		return true;
+		   		header('Location: activate.php?email=' . $email);
+		   }else {
+		   	return false;
+		   }
+	
+
+
+			}
+		}catch(ErrorException $ex){
+			echo "Message: ".$ex->getMessage();
+		}
+
+}
+
+
+public function verification($token){
+		$dbh = DB();
+		
+		
+		$stmt = $dbh->prepare("UPDATE users SET verified = 'yes' WHERE id = ?");
+		$stmt->execute([$token]);
+		$row = $stmt->rowCount();
+		if ($row>0) {
+			return true;
+		}else {
+			return false;
+		}
+
+	}
+			
+
+		
+	
+
+// login user
+function loginUser($email,$password)
+{
 
 	$db = DB();
 	$stmt = $db->prepare("SELECT * FROM users WHERE email=?");
@@ -39,18 +111,93 @@ function loginUser($email,$password){
 	}
 	
 
-	
-	// if (password_verify($password, $data['password'])) {
-	// 	if (count($data)>0) {
-	// 		return $data;
-	// 	}else {
-	// 		return false;
-	// 	}
-	// }else {
-	// 	return false;
-	// }
 
 }
+
+// Forget Password logic
+public function forgetPassword($email){
+			$dbh = DB();
+
+			// validate email
+			if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+				return false;
+			}else {
+
+				try{
+
+					// checking if user email already exist in the  system
+					$stmt = $dbh->prepare("SELECT email,password FROM users  WHERE email = ?");
+					$stmt->execute([$email]);
+					while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
+						$email = $data['email'];
+						$id = $data['id'];
+
+
+					
+
+
+							
+							// // Send email to user with the token in a link they can click on
+							$to = $email;
+							
+							$subject = "Please reset your password";
+							
+						// $msg = "Hi there, click on below link to reset your password<br> <a href=\"new_password.php?token=" . $token . "\">link</a>";
+
+		$msg = "Click <a href='www.xsoftgh.com/booking/admin/new_password.php?id=$id' >here</a> to reset your password";
+									
+							   
+
+		  
+		   	$headers[] = 'MIME-Version: 1.0';
+		   	$headers[] = 'Content-type: text/html; charset=iso-8859-1';
+
+		   
+		   $email_sent = mail($to, $subject, $msg, implode("\r\n", $headers));
+		   if ($email_sent) {
+		   		return true;
+		   		// header('Location: new_password.php?email=' . $email);
+		   }else {
+		   	return false;
+		   }
+	
+
+
+			}
+		}catch(ErrorException $ex){
+			echo "Message: ".$ex->getMessage();
+		}
+
+	}
+	// end of else
+}
+
+
+public function newPassword($password,$id){
+		$dbh = DB();
+		
+
+		
+
+	$new_password = password_hash($password, PASSWORD_DEFAULT);
+	$stmt = $dbh->prepare("UPDATE users SET password = ? WHERE id = ?");
+	$stmt->execute([$new_password,$id]);
+	$row = $stmt->rowCount();
+	if ($row>0) {
+		return true;
+	}else {
+		return false;
+	}
+
+
+}
+
+
+
+
+
+
+
 	
 
 function insertLandData($firstName,$lastName,$email,$phone,$buying_date,$size,$alloc_number){

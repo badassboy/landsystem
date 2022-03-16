@@ -14,19 +14,21 @@ if (isset($_POST['login'])) {
         // echo gettype($login);
         if (is_array($login)) {
 
-            if ($login['registerType'] == "district_assembly") {
+            if ($login['registerType'] == "district_assembly" AND $login['verified'] == "yes") {
                 $_SESSION['id'] = $login['id'];
                 header("Location:district.php");
                 exit();
-            }elseif ($login['registerType'] == "care_taker") {
+            }elseif ($login['registerType'] == "care_taker" AND $login['verified'] == "yes") {
                 $_SESSION['id'] = $login['id'];
                 header("Location:care_taker.php");
                 exit();
-            }elseif($login['registerType'] == "supreme"){
+            }elseif($login['registerType'] == "supreme" AND $login['verified'] == "yes"){
 
                 $_SESSION['id'] = $login['id'];
                 header("Location:omanhene.php");
                 exit();
+            }else {
+                echo "login failed or verify your email";
             }
             
         }else {
@@ -134,7 +136,7 @@ if (isset($_POST['login'])) {
                                                         <label class="form-check-label" for="remember-check">Remember me</label>
                                                     </div>
                                                 </div>
-                                                <a href="forgot-password.html" class="text-dark h6 mb-0">Forgot password ?</a>
+                                                <a href="forgot-password.php" class="text-dark h6 mb-0">Forgot password ?</a>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 mb-0">
