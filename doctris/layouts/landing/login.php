@@ -4,8 +4,8 @@ include("rest_api.php");
 $api = new Application();
 
 if (isset($_POST['login'])) {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = $api->testInput($_POST['email']);
+    $password = $api->testInput($_POST['password']);
 
     if (empty($email) || empty($password)) {
         $msg = "field required";

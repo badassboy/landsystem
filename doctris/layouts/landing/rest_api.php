@@ -4,11 +4,53 @@ include("database.php");
 
 class Application{
 
-	function registerUser($firstName,$lastName,$email,$password,$resgisterType)
+
+	function testInput($data)
+	{
+
+		$data = trim($data);
+
+        $data = stripslashes($data);
+
+        $data = htmlspecialchars($data);
+
+        return $data;
+	}
+
+
+	function registerUser($firstName,$lastName,$email,$password,$cpwd,$resgisterType)
 	{
 	$msg = "";
 	$db = DB();
-	$secured_password = password_hash($password, PASSWORD_DEFAULT);
+
+	// check if user is already registered
+	$stmt =$db->prepare("SELECT * FROM users");
+	$stmt->execute();
+	$data = $stmt->fetch(PDO::FETCH_ASSOC);
+	if ($data>0) {
+		echo '<div class="alert alert-danger" role="alert">User already exist</div>';
+	}else{
+
+		if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $firstName)) {
+			echo '<div class="alert alert-danger" role="alert">Only characters allowed</div>';
+		}else if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $lastName)) {
+			echo '<div class="alert alert-danger" role="alert">Only characters allowed</div>';
+			
+		}elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+			echo '<div class="alert alert-danger" role="alert">Invalid email</div>';
+
+		}elseif(strlen($password)<6){
+			echo '<div class="alert alert-danger" role="alert">Password too short</div>';
+
+		}elseif($password != $cpwd){
+			echo '<div class="alert alert-danger" role="alert">Password does not match</div>';
+
+		}
+
+		else {
+
+			// after all validations are meet
+			$secured_password = password_hash($password, PASSWORD_DEFAULT);
 $stmt = $db->prepare("INSERT INTO users(firstName,lastName,email,password,registerType) VALUES(?,?,?,?,?)");
 $stmt->execute([$firstName,$lastName,$email,$secured_password,$resgisterType]);
 $inserted = $stmt->rowCount();
@@ -22,8 +64,14 @@ if ($inserted>0) {
 	return false;
 }
 
-	
+
+		}
+	}
 }
+
+	
+
+	
 
 
 public function sendLink($email){
@@ -96,9 +144,12 @@ public function verification($token){
 // login user
 function loginUser($email,$password)
 {
-
 	$db = DB();
-	$stmt = $db->prepare("SELECT * FROM users WHERE email=?");
+	if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+		return false;
+	}else {
+
+		$stmt = $db->prepare("SELECT * FROM users WHERE email=?");
 	$stmt->execute([$email]);
 	while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
 
@@ -110,9 +161,12 @@ function loginUser($email,$password)
 		}
 	}
 	
-
-
 }
+
+	
+}
+
+
 
 // Forget Password logic
 public function forgetPassword($email){
@@ -194,15 +248,23 @@ public function newPassword($password,$id){
 
 
 
-
-
-
-
-	
-
 function insertLandData($firstName,$lastName,$email,$phone,$buying_date,$size,$alloc_number){
 	$db=DB();
-	$stmt=$db->prepare("INSERT INTO land(firstName,lastName,email,phone,buyer_date,plot_size,allocation_number) VALUES(?,?,?,?,?,?,?)");
+
+	if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $firstName)) {
+			echo '<div class="alert alert-danger" role="alert">Only characters allowed</div>';
+		}else if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $lastName)) {
+			echo '<div class="alert alert-danger" role="alert">Only characters allowed</div>';
+			
+		}elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+			echo '<div class="alert alert-danger" role="alert">Invalid email</div>';
+
+		}elseif(strlen($phone)<10){
+			echo '<div class="alert alert-danger" role="alert">Incorrect Number</div>';
+
+		}else {
+
+			$stmt=$db->prepare("INSERT INTO land(firstName,lastName,email,phone,buyer_date,plot_size,allocation_number) VALUES(?,?,?,?,?,?,?)");
 	$stmt->execute([$firstName,$lastName,$email,$phone,$buying_date,$size,$alloc_number]);
 	$inserted = $stmt->rowCount();
 	if ($inserted) {
@@ -210,6 +272,10 @@ function insertLandData($firstName,$lastName,$email,$phone,$buying_date,$size,$a
 	}else {
 		return false;
 	}
+
+		}
+
+	
 }
 
 function sitePlanUpload($file_name,$id){

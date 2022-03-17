@@ -4,10 +4,11 @@ include("rest_api.php");
 $api = new Application();
 
 if (isset($_POST['register'])) {
-    $firstName = $_POST['first_name'];
-    $lastName = $_POST['last_name'];
-    $email = $_POST['email'];
-    $password = $_POST['pwd'];
+    $firstName = $api->testInput($_POST['first_name']);
+    $lastName = $api->testInput($_POST['last_name']);
+    $email = $api->testInput($_POST['email']);
+    $password =  $api->testInput($_POST['pwd']);
+    $confirm_password = $api->testInput($_POST['cpwd']);
     $registerType = $_POST['register_type'];
 
     // if (empty($firstName)|| empty($lastName)|| empty($email)||empty($password)|| empty($resgisterType)) {
@@ -16,7 +17,7 @@ if (isset($_POST['register'])) {
 
         $requestMethod = $_SERVER['REQUEST_METHOD'];
         if ($requestMethod == "POST") {
-            $register = $api->registerUser($firstName,$lastName,$email,$password,$registerType);
+            $register = $api->registerUser($firstName,$lastName,$email,$password,$cpwd,$registerType);
             if ($register) {
                 $msg = '<div class="alert alert-success" role="alert">Registration successful.Check your 
                 email for confirmation email</div>';
@@ -141,6 +142,13 @@ if (isset($_POST['register'])) {
                                             <div class="mb-3">
                                                 <label class="form-label">Password <span class="text-danger">*</span></label>
         <input type="password" name="pwd" class="form-control" placeholder="Password" required="required">
+                                            </div>
+                                        </div>
+
+                                          <div class="col-md-12">
+                                            <div class="mb-3">
+                                                <label class="form-label">Confirm Password<span class="text-danger">*</span></label>
+        <input type="password" name="cpwd" class="form-control" placeholder=" Confirm Password" required="required">
                                             </div>
                                         </div>
 
