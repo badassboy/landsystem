@@ -3,9 +3,10 @@
                 <div class="row">
                     <div class="col-xl-5 col-lg-4 mb-0 mb-md-4 pb-0 pb-md-2">
                         <a href="#" class="logo-footer">
-                            <img src="../assets/images/logo-light.png" height="22" alt="">
+                            <h4>About</h4>
+                            <!-- <img src="../assets/images/logo-light.png" height="22" alt=""> -->
                         </a>
-                        <p class="mt-4 me-xl-5">Great land CRM for your business,real estate consultancy.Feel freeto get effective immediate assistance and consultation.</p>
+                        <p class="mt-4 me-xl-5">Landris is a CRM for your land business.Free consultation for businesses.</p>
                     </div><!--end col-->
 
                     <div class="col-xl-7 col-lg-8 col-md-12">
@@ -71,7 +72,7 @@
                     <div class="row align-items-center">
                         <div class="col-sm-6">
                             <div class="text-sm-start text-center">
-                                <p class="mb-0"><script>document.write(new Date().getFullYear())</script> © Doctris. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="cloudsoftgh.com" target="_blank" class="text-reset">Cloudsof Technologies</a>.</p>
+                                <p class="mb-0"><script>document.write(new Date().getFullYear())</script> © Landris. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="cloudsoftgh.com" target="_blank" class="text-reset">Cloudsoft Technologies</a>.</p>
                             </div>
                         </div><!--end col-->
     

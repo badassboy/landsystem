@@ -2,7 +2,7 @@
     <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>Doctris - Doctor Appointment Booking System</title>
+        <title>Landris - Land CRM System</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Premium Bootstrap 4 Landing Page Template" />
         <meta name="keywords" content="Appointment, Booking, System, Dashboard, Health" />
@@ -42,7 +42,7 @@
         <!-- Navbar End -->
 
         <!-- Start Hero -->
-        <section class="bg-half-260 d-table w-100" style="background: url('../assets/images/bg/01.jpg') center;">
+        <section class="bg-half-260 d-table w-100" style="background: url('https://plus.unsplash.com/premium_photo-1661963869605-4b5f4c8e55f2?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center;">
             <div class="bg-overlay bg-overlay-dark"></div>
             <div class="container">
                 <div class="row mt-5 mt-lg-0">
@@ -63,52 +63,7 @@
         </section><!--end section-->
         <!-- End Hero -->
 
-        <!-- Start -->
-       <!--  <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10">
-                        <div class="features-absolute bg-white shadow rounded overflow-hidden card-group">
-                            <div class="card border-0 bg-light p-4">
-                                <i class="ri-heart-pulse-fill text-primary h2 mb-0"></i>
-                                <h5 class="mt-1">Emergency Cases</h5>
-                                <p class="text-muted mt-2">This is required when, for example, the is not yet available. Dummy text is also known as 'fill text'.</p>
-                                <a href="departments.html" class="text-primary">Read More <i class="ri-arrow-right-line align-middle"></i></a>
-                            </div>
-                            
-                            <div class="card border-0 p-4">
-                                <i class="ri-dossier-fill text-primary h2 mb-0"></i>
-                                <h5 class="mt-1">Doctors Timetable</h5>
-                                <p class="text-muted mt-2">This is required when, for example, the is not yet available. Dummy text is also known as 'fill text'.</p>
-                                <a href="departments.html" class="text-primary">Read More <i class="ri-arrow-right-line align-middle"></i></a>
-                            </div>
-
-                            <div class="card border-0 bg-light p-4">
-                                <i class="ri-time-fill text-primary h2 mb-0"></i>
-                                <h5 class="mt-1">Opening Hours</h5>
-                                <ul class="list-unstyled mt-2">
-                                    <li class="d-flex justify-content-between">
-                                        <p class="text-muted mb-0">Monday - Friday</p>
-                                        <p class="text-primary mb-0">8.00 - 20.00</p>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <p class="text-muted mb-0">Saturday</p>
-                                        <p class="text-primary mb-0">8.00 - 18.00</p>
-                                    </li>
-                                    <li class="d-flex justify-content-between">
-                                        <p class="text-muted mb-0">Sunday</p>
-                                        <p class="text-primary mb-0">8.00 - 14.00</p>
-                                    </li>
-                                </ul>
-                                <a href="departments.html" class="text-primary">Read More <i class="ri-arrow-right-line align-middle"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div> -->
-            <!--end container-->
-
+        
             <!-- start of features -->
 
             <div class="container mt-100 mt-60">
@@ -130,7 +85,7 @@
                         <div class="ms-lg-4">
                             <div class="section-title">
                                 <h4 class="title mb-4">FAST TRACK LAND MANAGEMENT</h4>
-                                <p class="text-muted para-desc">AscendixRE Land is the only Customer Relationship Management (CRM) software created for land brokers. Designed in partnership with leading land brokers and consultants, it has all key functionality to assist you in land management and selling land, farms, ranches, timberland, and commercial land.</p>
+                                <p class="text-white-50 para-desc">Landris is a Customer Relationship Management (CRM) software created for land brokers. Designed in partnership with leading land brokers and consultants, it has all key functionality to assist you in land management and selling land, farms, ranches, timberland, and commercial land.</p>
                                <!--  <p class="text-muted para-desc mb-0">The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. Lorem Ipsum is composed in a pseudo-Latin language which more or less corresponds to 'proper' Latin. It contains a series of real Latin words.</p> -->
                             </div>
 
@@ -142,124 +97,9 @@
                 </div><!--end row-->
             </div><!--end container-->
 
-            <div class="container mt-100 mt-60">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="section-title mb-4 pb-2 text-center">
-                            <!-- <span class="badge badge-pill badge-soft-primary mb-3">Departments</span> -->
-                            <h4 class="title mb-4">Software Features</h4>
-                            <p class="text-muted mx-auto para-desc mb-0">Below are the features of the software</p>
-                        </div>
-                    </div><!--end col-->
-                </div><!--end row-->
+           <?php include("featuresinfo.php"); ?>
+            <!-- end of system info -->
 
-                <div class="row">
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                            <!-- <div class="icon text-center rounded-md">
-                                <i class="ri-eye-fill h3 mb-0"></i>
-                            </div> -->
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments.html" class="title text-dark h5">Stay on top of all deals</a>
-                                <p class="text-muted mt-3">AscendixRE Land supports all common commercial real estate deal types for your land brokerage</p>
-                               <!--  <a href="departments.html" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a> -->
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                           <!--  <div class="icon text-center rounded-md">
-                                <i class="ri-psychotherapy-fill h3 mb-0"></i>
-                            </div> -->
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments.html" class="title text-dark h5">Land & Property Report</a>
-                                <p class="text-muted mt-3">Do you want to create high-quality property overview reports for potential buyers and activity reports for landowners? Check out our Composer add-on for AscendixRE Land.</p>
-                                <!-- <a href="departments.html" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a> -->
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                           <!--  <div class="icon text-center rounded-md">
-                                <i class="ri-stethoscope-fill h3 mb-0"></i>
-                            </div> -->
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments.html" class="title text-dark h5">Map Integration</a>
-                                <p class="text-muted mt-3">MapRight expands the mapping capabilities within AscendixRE Land.
-
-With this integration, land brokers are able to create custom maps for their properties using MapRight and then link them to property records within their AscendixRE Land</p>
-                               
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                           <!--  <div class="icon text-center rounded-md">
-                                <i class="ri-capsule-fill h3 mb-0"></i>
-                            </div> -->
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments.html" class="title text-dark h5">Stay Flexible and Mobile</a>
-                                <p class="text-muted mt-3">For many brokers, their mobile phones and Outlook are the most-used tools. AscendixRE Land helps you to use them even more efficiently</p>
-                               
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                           <!--  <div class="icon text-center rounded-md">
-                                <i class="ri-microscope-fill h3 mb-0"></i>
-                            </div> -->
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments.html" class="title text-dark h5">MailChimp Integration</a>
-                                <p class="text-muted mt-3">AscendixRE Land CRM lets you update your MailChimp mailing lists automatically. Add new email recipients to your mailing lists, synchronize your data, and keep your mailing lists up-to-date easily. Save your time and be sure that all leads will get your emails when you planned with AscendixRE Land</p>
-                                
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                           <!--  <div class="icon text-center rounded-md">
-                                <i class="ri-pulse-fill h3 mb-0"></i>
-                            </div> -->
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments.html" class="title text-dark h5">Searching & Mapping</a>
-                                <p class="text-muted mt-3">Ascendix Search is an add-on to AscendixRE Land that will help you to get the most out of your data, search your records using multiple criteria, do a geospatial search, locate your properties, land on a map, plan your itineraries, bulk edit your records, export data to Excel and much more. Create calling lists, prioritize leads to call with a few clicks.</p>
-                                
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                   <!--  <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                           
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments.html" class="title text-dark h5">Gynecology</a>
-                                <p class="text-muted mt-3">There is now an abundance of readable dummy texts required purely to fill a space.</p>
-                                <a href="departments.html" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!--end col-->
-
-                   <!--  <div class="col-xl-3 col-md-4 col-12 mt-5">
-                        <div class="card features feature-primary border-0">
-                        
-                            <div class="card-body p-0 mt-3">
-                                <a href="departments.html" class="title text-dark h5">Neurology</a>
-                                <p class="text-muted mt-3">There is now an abundance of readable dummy texts required purely to fill a space.</p>
-                                <a href="departments.html" class="link">Read More <i class="ri-arrow-right-line align-middle"></i></a>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
         </section><!--end section-->
         <!-- End -->
 
@@ -267,230 +107,20 @@ With this integration, land brokers are able to create custom maps for their pro
         
 
         <!-- Start -->
-        <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="section-title text-center mb-4 pb-2">
-                            <h4 class="title mb-4">Team Members</h4>
-                            <p class="text-muted mx-auto para-desc mb-0">We are 200+ CRM consultants, developers, admins, CRM support specialists with over 26 years of expertise. We offer professional CRM consulting services and develop apps and software. Also, we are creators of AscendixRE CRM for commercial real estate, Ascendix Search app for Salesforce users. You can work with our team from the US, Portugal, and Ukraine, or with mixed teams.</p>
-                        </div>
-                    </div><!--end col-->
-                </div><!--end row-->
-
-                <div class="row align-items-center">
-                    <div class="col-xl-3 col-lg-3 col-md-6 mt-4 pt-2">
-                        <div class="card team border-0 rounded shadow overflow-hidden">
-                            <div class="team-img position-relative">
-                                <img src="../assets/images/doctors/emma.jpg" class="img-fluid" alt="">
-                                <ul class="list-unstyled team-social mb-0">
-                                    <li><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="github" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="card-body content text-center">
-                                <a href="doctor-team-one.html" class="title text-dark h5 d-block mb-0">Emmanuel Obeng</a>
-                                <small class="text-muted speciality">Application Developer</small>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    
-                    <div class="col-xl-3 col-lg-3 col-md-6 mt-4 pt-2">
-                        <div class="card team border-0 rounded shadow overflow-hidden">
-                            <div class="team-img position-relative">
-                                <img src="../assets/images/doctors/charles.jpeg" class="img-fluid" alt="">
-                                <ul class="list-unstyled team-social mb-0">
-                                    <li><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="github" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="card-body content text-center">
-                                <a href="doctor-team-one.html" class="title text-dark h5 d-block mb-0">Charles Koge</a>
-                                <small class="text-muted speciality">Product Developer</small>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    
-                    <div class="col-xl-3 col-lg-3 col-md-6 mt-4 pt-2">
-                        <div class="card team border-0 rounded shadow overflow-hidden">
-                            <div class="team-img position-relative">
-                                <img src="../assets/images/doctors/brian.jpg" class="img-fluid" alt="">
-                                <ul class="list-unstyled team-social mb-0">
-                                    <li><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="github" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="card-body content text-center">
-                                <a href="doctor-team-one.html" class="title text-dark h5 d-block mb-0">brainiachades</a>
-                                <small class="text-muted speciality">Web Developer</small>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-                    
-                    <div class="col-xl-3 col-lg-3 col-md-6 mt-4 pt-2">
-                        <div class="card team border-0 rounded shadow overflow-hidden">
-                            <div class="team-img position-relative">
-                                <img src="../assets/images/doctors/04.jpg" class="img-fluid" alt="">
-                                <ul class="list-unstyled team-social mb-0">
-                                    <li><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="facebook" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="linkedin" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="github" class="icons"></i></a></li>
-                                    <li class="mt-2"><a href="#" class="btn btn-icon btn-pills btn-soft-primary"><i data-feather="twitter" class="icons"></i></a></li>
-                                </ul>
-                            </div>
-                            <div class="card-body content text-center">
-                                <a href="doctor-team-one.html" class="title text-dark h5 d-block mb-0">Toni Kovar</a>
-                                <small class="text-muted speciality">Orthopedic</small>
-                            </div>
-                        </div>
-                    </div><!--end col-->
-
-                    <div class="col-12 mt-4 pt-2 text-center">
-                        <a href="doctor-team-one.html" class="btn btn-primary">See More</a>
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
-        </section><!--end section-->
+       <?php include("teammembers.php"); ?>
         <!-- End -->
 
         <!-- Start -->
         
 
-        <!-- Start -->
-        <section class="section">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-12">
-                        <div class="section-title text-center mb-4 pb-2">
-                            <h4 class="title mb-4">Testimonial</h4>
-                            <p class="text-muted mx-auto para-desc mb-0">Great land CRM  for your business,real estate consultancy.Feel freeto get effective immediate assistance and consultation.</p>
-                        </div>
-                    </div><!--end col-->
-                </div><!--end row-->
-
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 mt-4 pt-2 text-center">
-                        <div class="client-review-slider">
-                            <div class="tiny-slide text-center">
-                                <p class="text-muted h6 fw-normal fst-italic">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. "</p>
-                                <img src="../assets/images/client/01.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
-                                <ul class="list-unstyled mb-0">
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                </ul>
-                                <h6 class="text-primary">- Thomas Israel <small class="text-muted">C.E.O</small></h6>
-                            </div><!--end customer testi-->
-                            
-                            <div class="tiny-slide text-center">
-                                <p class="text-muted h6 fw-normal fst-italic">" The advantage of its Latin origin and the relative meaninglessness of Lorum Ipsum is that the text does not attract attention to itself or distract the viewer's attention from the layout. "</p>
-                                <img src="../assets/images/client/02.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
-                                <ul class="list-unstyled mb-0">
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                </ul>
-                                <h6 class="text-primary">- Carl Oliver <small class="text-muted">P.A</small></h6>
-                            </div><!--end customer testi-->
-                            
-                            <div class="tiny-slide text-center">
-                                <p class="text-muted h6 fw-normal fst-italic">" There is now an abundance of readable dummy texts. These are usually used when a text is required purely to fill a space. These alternatives to the classic Lorem Ipsum texts are often amusing and tell short, funny or nonsensical stories. "</p>
-                                <img src="../assets/images/client/03.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
-                                <ul class="list-unstyled mb-0">
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                </ul>
-                                <h6 class="text-primary">- Barbara McIntosh <small class="text-muted">M.D</small></h6>
-                            </div><!--end customer testi-->
-                            
-                            <div class="tiny-slide text-center">
-                                <p class="text-muted h6 fw-normal fst-italic">" According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero in 45 BC. Allegedly, a Latin scholar established the origin of the text by compiling all the instances of the unusual word 'consectetur' he could find "</p>
-                                <img src="../assets/images/client/04.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
-                                <ul class="list-unstyled mb-0">
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                </ul>
-                                <h6 class="text-primary">- Christa Smith <small class="text-muted">Manager</small></h6>
-                            </div><!--end customer testi-->
-                            
-                            <div class="tiny-slide text-center">
-                                <p class="text-muted h6 fw-normal fst-italic">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. The most well-known dummy text is the 'Lorem Ipsum', which is said to have originated in the 16th century. "</p>
-                                <img src="../assets/images/client/05.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
-                                <ul class="list-unstyled mb-0">
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                </ul>
-                                <h6 class="text-primary">- Dean Tolle <small class="text-muted">Developer</small></h6>
-                            </div><!--end customer testi-->
-                            
-                            <div class="tiny-slide text-center">
-                                <p class="text-muted h6 fw-normal fst-italic">" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. One may speculate that over the course of time certain letters were added or deleted at various positions within the text. "</p>
-                                <img src="../assets/images/client/06.jpg" class="img-fluid avatar avatar-small rounded-circle mx-auto shadow my-3" alt="">
-                                <ul class="list-unstyled mb-0">
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                    <li class="list-inline-item"><i class="mdi mdi-star text-warning"></i></li>
-                                </ul>
-                                <h6 class="text-primary">- Jill Webb <small class="text-muted">Designer</small></h6>
-                            </div><!--end customer testi-->
-                        </div><!--end carousel-->
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
+        <!-- testimonial -->
+        <!-- testimonial -->
+       
 
            
 
         <!-- Partners start -->
-        <section class="py-4 bg-light">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/amazon.png" class="avatar avatar-client" alt="">
-                    </div><!--end col-->
-
-                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/google.png" class="avatar avatar-client" alt="">
-                    </div><!--end col-->
-                    
-                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/lenovo.png" class="avatar avatar-client" alt="">
-                    </div><!--end col-->
-                    
-                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/paypal.png" class="avatar avatar-client" alt="">
-                    </div><!--end col-->
-                    
-                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/shopify.png" class="avatar avatar-client" alt="">
-                    </div><!--end col-->
-                    
-                    <div class="col-lg-2 col-md-2 col-6 text-center py-4">
-                        <img src="../assets/images/client/spotify.png" class="avatar avatar-client" alt="">
-                    </div><!--end col-->
-                </div><!--end row-->
-            </div><!--end container-->
-        </section><!--end section-->
+      
         <!-- Partners End -->
 
         <!-- Start -->
@@ -498,26 +128,8 @@ With this integration, land brokers are able to create custom maps for their pro
         <!-- Start -->
        
 
-            <div class="container mt-5">
-                <div class="pt-4 footer-bar">
-                    <div class="row align-items-center">
-                        <div class="col-sm-6">
-                            <div class="text-sm-start text-center">
-                                <p class="mb-0"><script>document.write(new Date().getFullYear())</script> © Doctris. Design with <i class="mdi mdi-heart text-danger"></i> by <a href="cloudsoftgh.com" target="_blank" class="text-reset">Cloudsof Technologies</a>.</p>
-                            </div>
-                        </div><!--end col-->
-    
-                        <div class="col-sm-6 mt-4 mt-sm-0">
-                            <ul class="list-unstyled footer-list text-sm-end text-center mb-0">
-                                <li class="list-inline-item"><a href="terms.html" class="text-foot me-2">Terms</a></li>
-                                <li class="list-inline-item"><a href="privacy.html" class="text-foot me-2">Privacy</a></li>
-                                <li class="list-inline-item"><a href="aboutus.html" class="text-foot me-2">About</a></li>
-                                <li class="list-inline-item"><a href="contact.html" class="text-foot me-2">Contact</a></li>
-                            </ul>
-                        </div><!--end col-->
-                    </div><!--end row-->
-                </div>
-            </div><!--end container-->
+            
+            <!--end container-->
         </footer><!--end footer-->
         <!-- End -->
 
