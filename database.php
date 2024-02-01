@@ -6,7 +6,7 @@ define('USER', 'root');
 // user password
 define('PASSWORD', '');
 // database localhost name
-define('DATABASE', 'landmanagement');
+define('DATABASE', 'lands');
 
 function DB()
 {

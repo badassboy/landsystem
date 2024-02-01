@@ -13,15 +13,15 @@
         <!-- favicon -->
         <link rel="shortcut icon" href="https://shreethemes.in/doctris/layouts/assets/images/favicon.ico">
         <!-- Bootstrap -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons -->
-        <link href="../assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/remixicon.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/remixicon.css" rel="stylesheet" type="text/css" />
         <link href="../../../../unicons.iconscout.com/release/v3.0.6/css/line.css"  rel="stylesheet">
         <!-- SLIDER -->
-        <link rel="stylesheet" href="../assets/css/tiny-slider.css"/>
+        <link rel="stylesheet" href="assets/css/tiny-slider.css"/>
         <!-- Css -->
-        <link href="../assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
+        <link href="assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
 
     </head>
 
@@ -231,16 +231,16 @@
         <!-- MOdal End -->
         
         <!-- javascript -->
-        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
         <!-- SLIDER -->
-        <script src="../assets/js/tiny-slider.js"></script>
-        <script src="../assets/js/tiny-slider-init.js"></script>
+        <script src="assets/js/tiny-slider.js"></script>
+        <script src="assets/js/tiny-slider-init.js"></script>
         <!-- Counter -->
-        <script src="../assets/js/counter.init.js"></script>
+        <script src="assets/js/counter.init.js"></script>
         <!-- Icons -->
-        <script src="../assets/js/feather.min.js"></script>
+        <script src="assets/js/feather.min.js"></script>
         <!-- Main Js -->
-        <script src="../assets/js/app.js"></script>
+        <script src="assets/js/app.js"></script>
     </body>
 
 <!-- Mirrored from shreethemes.in/doctris/layouts/landing/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 22 Feb 2022 21:07:14 GMT -->
