@@ -4,52 +4,55 @@ include("rest_api.php");
 $api = new Application();
 
 if (isset($_POST['login'])) {
-    $email = $api->testInput($_POST['email']);
-    $password = $api->testInput($_POST['password']);
+    // $email = $api->testInput($_POST['email']);
+    $email = $_POST['email'];
+  
+    $password =$_POST['password'];
+   
 
     if (empty($email) || empty($password)) {
         $msg = "field required";
     }else {
+
         $login = $api->loginUser($email,$password);
-        // echo gettype($login);
+        var_dump($login);
         if (is_array($login)) {
-
-            if ($login['registerType'] == "district_assembly" AND $login['verified'] == "yes") {
-                $_SESSION['id'] = $login['id'];
-                header("Location:district.php");
-                exit();
-            }elseif ($login['registerType'] == "care_taker" AND $login['verified'] == "yes") {
-                $_SESSION['id'] = $login['id'];
-                header("Location:care_taker.php");
-                exit();
-            }elseif($login['registerType'] == "supreme" AND $login['verified'] == "yes"){
-
-                $_SESSION['id'] = $login['id'];
-                header("Location:omanhene.php");
-                exit();
-            }else {
-                echo "login failed or verify your email";
-            }
-            
+            echo "true";
+            $_SESSION['id'] = $login['userId'];
+            header("Location: admin/homepage.php");
+            exit();
         }else {
-            echo "false";
-        }
-        
-        // if (!is_null($login) || $login != false) {
 
-        //     if ($login['registerType'] == "care_taker") {
-        //         $_SESSION['id'] = $login['id'];
-        //         header("Location:care_taker.php");
-        //         exit;
-        //     }elseif ($login['registerType'] == "district_assembly") {
+            echo "function not working";
+            
+        }
+
+
+        // echo gettype($login);
+        // if (is_array($login)) {
+
+        //     if ($login['registerType'] == "district_assembly" AND $login['verified'] == "yes") {
         //         $_SESSION['id'] = $login['id'];
         //         header("Location:district.php");
-        //         exit;
-        //     }
+        //         exit();
+        //     }elseif ($login['registerType'] == "care_taker" AND $login['verified'] == "yes") {
+        //         $_SESSION['id'] = $login['id'];
+        //         header("Location:care_taker.php");
+        //         exit();
+        //     }elseif($login['registerType'] == "supreme" AND $login['verified'] == "yes"){
 
+        //         $_SESSION['id'] = $login['id'];
+        //         header("Location:omanhene.php");
+        //         exit();
+        //     }else {
+        //         echo "login failed or verify your email";
+        //     }
+            
         // }else {
-        //     echo "no";
+        //     echo "false";
         // }
+        
+        
 
        
     }
@@ -77,13 +80,13 @@ if (isset($_POST['login'])) {
         <!-- favicon -->
         <link rel="shortcut icon" href="https://shreethemes.in/doctris/layouts/assets/images/favicon.ico">
         <!-- Bootstrap -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons -->
-        <link href="../assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/remixicon.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/remixicon.css" rel="stylesheet" type="text/css" />
         <link href="../../../../unicons.iconscout.com/release/v3.0.6/css/line.css"  rel="stylesheet">
         <!-- Css -->
-        <link href="../assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
+        <link href="assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
 
     </head>
 
@@ -176,11 +179,11 @@ if (isset($_POST['login'])) {
         <!-- Hero End -->
         
         <!-- javascript -->
-        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
         <!-- Icons -->
-        <script src="../assets/js/feather.min.js"></script>
+        <script src="assets/js/feather.min.js"></script>
         <!-- Main Js -->
-        <script src="../assets/js/app.js"></script>
+        <script src="assets/js/app.js"></script>
         
     </body>
 

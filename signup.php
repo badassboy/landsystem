@@ -8,7 +8,7 @@ if (isset($_POST['register'])) {
     $lastName = $api->testInput($_POST['last_name']);
     $email = $api->testInput($_POST['email']);
     $password =  $api->testInput($_POST['pwd']);
-    $confirm_password = $api->testInput($_POST['cpwd']);
+    $cpwd = $api->testInput($_POST['cpwd']);
     $registerType = $_POST['register_type'];
 
     // if (empty($firstName)|| empty($lastName)|| empty($email)||empty($password)|| empty($resgisterType)) {
@@ -19,10 +19,12 @@ if (isset($_POST['register'])) {
         if ($requestMethod == "POST") {
             $register = $api->registerUser($firstName,$lastName,$email,$password,$cpwd,$registerType);
             if ($register) {
-                $msg = '<div class="alert alert-success" role="alert">Registration successful.Check your 
-                email for confirmation email</div>';
+                header("Location:login.php");
+                exit();
+                // $msg = '<div class="alert alert-success" role="alert">Registration successful.Check your 
+                // email for confirmation email</div>';
 
-                $api->sendLink($email);
+                // $api->sendLink($email);
 
 
 
@@ -58,13 +60,13 @@ if (isset($_POST['register'])) {
         <!-- favicon -->
         <link rel="shortcut icon" href="https://shreethemes.in/doctris/layouts/assets/images/favicon.ico">
         <!-- Bootstrap -->
-        <link href="../assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
         <!-- Icons -->
-        <link href="../assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
-        <link href="../assets/css/remixicon.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/materialdesignicons.min.css" rel="stylesheet" type="text/css" />
+        <link href="assets/css/remixicon.css" rel="stylesheet" type="text/css" />
         <link href="../../../../unicons.iconscout.com/release/v3.0.6/css/line.css"  rel="stylesheet">
         <!-- Css -->
-        <link href="../assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
+        <link href="assets/css/style.min.css" rel="stylesheet" type="text/css" id="theme-opt" />
 
     </head>
 
@@ -206,11 +208,11 @@ if (isset($_POST['register'])) {
         <!-- Hero End -->
         
         <!-- javascript -->
-        <script src="../assets/js/bootstrap.bundle.min.js"></script>
+        <script src="assets/js/bootstrap.bundle.min.js"></script>
         <!-- Icons -->
-        <script src="../assets/js/feather.min.js"></script>
+        <script src="assets/js/feather.min.js"></script>
         <!-- Main Js -->
-        <script src="../assets/js/app.js"></script>
+        <script src="assets/js/app.js"></script>
         
     </body>
 

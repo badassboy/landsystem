@@ -24,19 +24,18 @@ class Application{
 	$db = DB();
 
 	// check if user is already registered
-	$stmt =$db->prepare("SELECT * FROM users");
-	$stmt->execute();
-	$data = $stmt->fetch(PDO::FETCH_ASSOC);
-	if ($data>0) {
-		echo '<div class="alert alert-danger" role="alert">User already exist</div>';
-	}else{
+	// $stmt =$db->prepare("SELECT * FROM users");
+	// $stmt->execute();
+	// $data = $stmt->fetch(PDO::FETCH_ASSOC);
+	// if ($data>0) {
+	// 	echo '<div class="alert alert-danger" role="alert">User already exist</div>';
+	// }
 
-		if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $firstName)) {
-			echo '<div class="alert alert-danger" role="alert">Only characters allowed</div>';
-		}else if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $lastName)) {
-			echo '<div class="alert alert-danger" role="alert">Only characters allowed</div>';
-			
-		}elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+	// else{
+
+		
+
+		if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
 			echo '<div class="alert alert-danger" role="alert">Invalid email</div>';
 
 		}elseif(strlen($password)<6){
@@ -66,7 +65,7 @@ if ($inserted>0) {
 
 
 		}
-	}
+	// }
 }
 
 	
@@ -142,26 +141,30 @@ public function verification($token){
 	
 
 // login user
-function loginUser($email,$password)
+public function loginUser($email,$password)
 {
 	$db = DB();
-	if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
-		return false;
-	}else {
+	// if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+	// 	return false;
+	// }else {
 
-		$stmt = $db->prepare("SELECT * FROM users WHERE email=?");
+		$stmt = $db->prepare("SELECT * FROM users WHERE email = ?");
 	$stmt->execute([$email]);
-	while ($row=$stmt->fetch(PDO::FETCH_ASSOC)) {
+	$data = $stmt->fetchAll();
 
-		if (password_verify($password, $row['password']) == "true") {
-			return $row;
+		foreach($data as $row){
+			$db_password = $row['password'];
+			if (password_verify($password, $db_password)) {
+			return $data;
 			
 		}else {
 			return false;
 		}
-	}
-	
-}
+
+		}
+		
+		
+// }
 
 	
 }
@@ -247,36 +250,112 @@ public function newPassword($password,$id){
 }
 
 
+// Insert land data into the database
+public function insertLandData(array $propertyData){
 
-function insertLandData($firstName,$lastName,$email,$phone,$buying_date,$size,$alloc_number){
+	// Access individual parameters using array keys
+	$seller = $propertyData['seller'];
+	$status = $propertyData['status'];
+	$cost = $propertyData['cost'];
+	$location = $propertyData['location'];
+	$witness = $propertyData['witness'];
+	$size = $propertyData['size'];
+	$note = $propertyData['note'];
+
 	$db=DB();
 
-	if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $firstName)) {
-			echo '<div class="alert alert-danger" role="alert">Only characters allowed</div>';
-		}else if (!preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $lastName)) {
-			echo '<div class="alert alert-danger" role="alert">Only characters allowed</div>';
-			
-		}elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-			echo '<div class="alert alert-danger" role="alert">Invalid email</div>';
-
-		}elseif(strlen($phone)<10){
-			echo '<div class="alert alert-danger" role="alert">Incorrect Number</div>';
-
-		}else {
-
-			$stmt=$db->prepare("INSERT INTO land(firstName,lastName,email,phone,buyer_date,plot_size,allocation_number) VALUES(?,?,?,?,?,?,?)");
-	$stmt->execute([$firstName,$lastName,$email,$phone,$buying_date,$size,$alloc_number]);
+	$stmt=$db->prepare("INSERT INTO land(seller,status,cost,location,witness,size,note) VALUES(?,?,?,?,?,?,?)");
+	$stmt->execute([$seller,$status,$cost,$location,$witness,$size,$note]);
 	$inserted = $stmt->rowCount();
 	if ($inserted) {
 		return true;
 	}else {
 		return false;
 	}
-
-		}
-
-	
 }
+
+// Add customer info
+public function addCustomerData(array $customerData){
+
+	// Access individual parameters using array keys
+	$name = $customerData['name'];
+	$source = $customerData['source'];
+	$email = $customerData['email'];
+	$mobile = $customerData['mobile'];
+	$whatsapp = $customerData['whatsapp'];
+	$location = $customerData['location'];
+	$level = $customerData['level'];
+	$note = $customerData['note'];
+
+	$db=DB();
+
+	$stmt=$db->prepare("INSERT INTO customers(cust_name,source,email,mobile,whatsapp,location,level,note) VALUES(?,?,?,?,?,?,?,?)");
+	$stmt->execute([$name,$source,$email,$mobile,$whatsapp,$location,$level,$note]);
+	$inserted = $stmt->rowCount();
+	if ($inserted) {
+		return true;
+	}else {
+		return false;
+	}
+}
+
+// Project Management
+public function addProjectData(array $projectData){
+
+	// Access individual parameters using array keys
+	$name = $projectData['name'];
+	$priority = $projectData['priority'];
+	$assigned = $projectData['assigned'];
+	$start_date = $projectData['start_date'];
+	$end_date = $projectData['end_date'];
+	$location = $projectData['location'];
+	$cost = $projectData['cost'];
+	$note = $projectData['note'];
+
+	$db=DB();
+
+	$stmt=$db->prepare("INSERT INTO projects(proj_name,priority,assigned,start_date,
+		end_date,location,cost,note) VALUES(?,?,?,?,?,?,?,?)");
+	$stmt->execute([$name,$priority,$assigned,$start_date,$end_date,$location,$cost,$note]);
+	$inserted = $stmt->rowCount();
+	if ($inserted) {
+		return true;
+	}else {
+		return false;
+	}
+}
+
+// Purchases
+public function addPurchaseData(array $purchaseData){
+
+	// Access individual parameters using array keys
+	$buyer = $purchaseData['buyer'];
+	$property = $purchaseData['property'];
+	$location = $purchaseData['location'];
+	$mobile = $purchaseData['mobile'];
+	$whatsapp = $purchaseData['whatsapp'];
+	$proposed_date = $purchaseData['proposed_date'];
+	$delivery_date = $purchaseData['delivery_date'];
+	$value = $purchaseData['value'];
+	$note = $purchaseData['note'];
+
+	$db=DB();
+
+	$stmt=$db->prepare("INSERT INTO purchase(buyer,property,location,mobile,whatsapp,proposed_date,
+		delivery_date,value,note) VALUES(?,?,?,?,?,?,?,?,?)");
+	$stmt->execute([$buyer,$property,$location,$mobile,$whatsapp,$proposed_date,
+		$delivery_date,$value,$note]);
+	$inserted = $stmt->rowCount();
+	if ($inserted) {
+		return true;
+	}else {
+		return false;
+	}
+}
+
+
+
+
 
 function sitePlanUpload($file_name,$id){
 	$dbs = DB();
@@ -326,13 +405,34 @@ $stmt = $dbs->prepare("UPDATE land SET site_plan=? WHERE id=?");
 		}
 }
 
-function getLands(){
+// display all lands info
+public function getLands(){
 	$db = DB();
 	$stmt =$db->prepare("SELECT * FROM land");
 	$stmt->execute();
 	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 	return $data;
 }
+
+// display all customer info.
+public function getCustomers(){
+	$db = DB();
+	$stmt =$db->prepare("SELECT * FROM customers");
+	$stmt->execute();
+	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $data;
+}
+
+//get all projects
+public function getProjects(){
+	$db = DB();
+	$stmt =$db->prepare("SELECT * FROM projects");
+	$stmt->execute();
+	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $data;
+}
+
+
 
 function uploadSignature($file_name,$id){
 	$dbs = DB();
