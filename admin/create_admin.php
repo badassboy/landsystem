@@ -1,35 +1,3 @@
-<?php
-
-include("../library.php");
-$ch = new Banking();
-
-if(isset($_POST['add'])){
-  $msg = "";
-  $username = trim($_POST['username']);
-  $email = trim($_POST['email']);
-  $password = $_POST['password'];
-  // $mobile = trim($_POST['mobile']);
-
-  if(empty($username)|| empty($email)|| empty($password)){
-    $msg = "fields are required";
-  }else {
-    $laliga = $ch->createAdmin($username,$email,$password);
-    if($laliga){
-      $msg = "Admin creation successful";
-    }else {
-      $msg = "failed in adding admin";
-    }
-  }
-
-}
-// end of laliga news
-
-
-
-?>
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -41,7 +9,8 @@ if(isset($_POST['add'])){
     <title>Collapsible sidebar using Bootstrap 4</title>
 
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"> -->
 
     
 
@@ -102,19 +71,19 @@ if(isset($_POST['add'])){
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>LEMONFIRM</h3>
+                <h3>LANDRIS</h3>
             </div>
 
             <ul class="list-unstyled components">
-                <p>BRANCHES</p>
+                <p>AGENCY</p>
 
 
             <li>
-                <a href="#" id="appointment" data-target="one" class="test">Admin created</a>
+                <a href="#" id="appointment" data-target="one" class="test">Add agency</a>
             </li>
 
             <li>
-                <a href="#" id="event" data-target="two" class="test">Al Admin</a>
+                <a href="#" id="event" data-target="two" class="test">All agencies</a>
             </li>
 
          
@@ -148,91 +117,54 @@ if(isset($_POST['add'])){
                 </div>
             </nav>
 
-            <h2>CREATE ADMIN</h2>
+            <h2>AGENTS</h2>
 
             <div class="container appointment show" id="one">
 
-                            <div class="myForm">
-                                <?php 
+                <?php include("agentform.php"); ?>
 
-                                if (isset($msg)) {
-                                    echo $msg;
-                                }
-
-                                ?>
-
-           <form method="post">
-          <div class="form-group">
-            <label for="exampleInputEmail1">Username</label>
-            <input type="text" class="form-control" name="username" placeholder="Username" required>
-           
-          </div>
-
-          <div class="form-group">
-            <label for="exampleInputPassword1">Email</label>
-            <input type="email" class="form-control" name="email" placeholder="Email" required>
-          </div>
-
-           <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" name="password" placeholder="Password" required>
-          </div>
-
-          
-         
-
-          <button type="submit" class="btn btn-primary" name="add">Submit</button>
-        </form>
+                            
+             </div>
 
 
-
-
-                                
-
-                                
-                                
-
-                                
-
-                                
-
-
-                                
-
-                        
-                            </div>
-             
-            
-               
-            </div>
-
-
-    
-            
-
-
-               
-
-                
-
-
-             <div class="container event" id="two">
+    <div class="container event" id="two">
 
                <table class="table">
 
             <thead>
               <tr>
                 
-                <th scope="col">Amount</th>
-                <th scope="col">Accnt Holder</th>
-                <th scope="col">Accnt Number</th>
-                <th scope="col">Status</th>
+                <th scope="col">ID</th>
+                <th scope="col">Client</th>
+                
+                <th scope="col">Mobile</th>
+                <th scope="col">Email</th>
+                
+                
 
                 <th scope="col">Action</th>
               </tr>
             </thead>
 
-            <tbody></tbody>
+            <tbody>
+                <?php
+
+                $lands = $ch->getAgent();
+                foreach($lands as $row){
+
+
+
+                ?>
+                <tr>
+                    <td><?php echo $row['agentID']; ?></td>
+                    <td><?php echo $row['agent']; ?></td>
+                    <td><?php echo $row['mobile']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    
+                </tr>
+
+            <?php } ?>
+            </tbody>
 
             </table>
               
@@ -286,74 +218,9 @@ if(isset($_POST['add'])){
                document.getElementById(id).classList.add('show');
         }
 
-        // display all featured news
-        $(document).ready(function(){
-
-$.ajax({
- url:"featuredajax.php",
- type:"get",
- dataType:"JSON",
- success:function(response){
-   console.log(response);
-     var len = response.length;
-     for (var i = 0; i < len; i++) {
-
-           var edit = response[i]['edit'];
-         var my_delete  = response[i]["delete"];
-
-         var action = edit.concat(" ", my_delete);
-
-         var branch = response[i]["branch"];
-
-         var address = response[i]["address"];
        
-         var location = response[i]["location"];
-         var mobile = response[i]["mobile"];
 
-         var table_str = "<tr>" +
-                      
-                      
-                      "<td>" + branch + "</td>" +
-                      "<td>" + address + "</td>" +
-                    
-                      "<td>" + location + "</td>" +
-                      "<td>" + mobile + "</td>" +
-                      "<td>" + action + "</td>" +
-                      "</tr>";
-
-
-              $(".table tbody").append(table_str);
-
-            }
-             
-          },
-          error:function(response){
-            console.log("Error: "+ response);
-          }
-      
-          });  
-
-      });
-
-
-
-        
-              
-
-
-        
-
-           
-
-
-
-
-
-
-        
-
-
-    </script>
+</script>
 </body>
 
 </html>

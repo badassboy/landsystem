@@ -311,7 +311,7 @@
                 <a href="featured.php"><div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Lands</div>
+                      <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Property</div>
                     </div>
                     <div class="col-auto">
                       <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -383,12 +383,12 @@
             
 
             <!-- Earnings (Monthly) Card Example -->
-           <!--  <div class="col-xl-3 col-md-6 mb-4">
+             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <a href="accounts.php"><div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Accounts</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">PAYMENT</div>
                       </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -396,15 +396,15 @@
                   </div>
                 </div></a>
               </div>
-            </div> -->
+            </div> 
 
 
-           <!--  <div class="col-xl-3 col-md-6 mb-4">
+            <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">
                 <a href="settings.php"><div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Settings</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Bookings</div>
                       </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -419,7 +419,7 @@
                 <a href="create_admin.php"><div class="card-body">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">ADMIN</div>
+                      <div class="text-xs font-weight-bold text-info text-uppercase mb-1">AGENCIES</div>
                       </div>
                     <div class="col-auto">
                       <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -428,7 +428,7 @@
                 </div></a>
               </div>
             </div>
- -->
+ 
 
             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-info shadow h-100 py-2">

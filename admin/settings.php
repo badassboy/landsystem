@@ -9,7 +9,8 @@
     <title>Collapsible sidebar using Bootstrap 4</title>
 
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"> -->
 
     
 
@@ -53,10 +54,10 @@
           display: block;
         }
 
-
-        .form-group input[type="password"]{
+        button[type="submit"]{
+            margin: 2%;
             width: 50%;
-            margin-bottom: 2%;
+            margin-left: 40%;
         }
 
 
@@ -70,19 +71,19 @@
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>LEMONFIRM</h3>
+                <h3>LANDRIS</h3>
             </div>
 
             <ul class="list-unstyled components">
-                <p>Settings</p>
+                <p>BOOKING</p>
 
 
             <li>
-                <a href="#" id="appointment" data-target="one" class="test">Settings</a>
+                <a href="#" id="appointment" data-target="one" class="test">Add booking</a>
             </li>
 
             <li>
-                <!-- <a href="#" id="event" data-target="two" class="test">All Transfers</a> -->
+                <a href="#" id="event" data-target="two" class="test">All bookings</a>
             </li>
 
          
@@ -116,72 +117,61 @@
                 </div>
             </nav>
 
-            <h2>Change Password</h2>
+            <h2>Bookings</h2>
 
             <div class="container appointment show" id="one">
 
-                <div id="response"></div>
+                <?php include("bookingform.php"); ?>
 
-                <div class="myForm">
-
-                <form method="post" id="setting" action="admin_password_ajax.php">
-
-                  <div class="form-group">
-                    <label class="form-label">New password</label>
-                    <input type="password" name="password" class="form-control" required>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="form-label">Repeat new password</label>
-                    <input type="password" name="confirm_password" class="form-control" required>
-                  </div>
-
-                  
-                    <button type="submit"  class="btn btn-primary">Change Password</button>
-                 
-                  
-
-                  
-                </form>
-
-            </div>
-             
-            
-               
-            </div>
+                            
+             </div>
 
 
-    
-            
-
-
-               
-
-                
-
-
-            <!--  <div class="container event" id="two">
+    <div class="container event" id="two">
 
                <table class="table">
 
             <thead>
               <tr>
                 
-                <th scope="col">Amount</th>
-                <th scope="col">Accnt Holder</th>
-                <th scope="col">Accnt Number</th>
-                <th scope="col">Status</th>
+                <th scope="col">ID</th>
+                <th scope="col">Client</th>
+                <th scope="col">Property</th>
+                <th scope="col">Mobile</th>
+                <th scope="col">Email</th>
+                <th scope="col">Date</th>
+                <th scope="col">Budget</th>
 
                 <th scope="col">Action</th>
               </tr>
             </thead>
 
-            <tbody></tbody>
+            <tbody>
+                <?php
+
+                $lands = $ch->getBooking();
+                foreach($lands as $row){
+
+
+
+                ?>
+                <tr>
+                    <td><?php echo $row['bookingID']; ?></td>
+                    <td><?php echo $row['client']; ?></td>
+                    <td><?php echo $row['property']; ?></td>
+                    <td><?php echo $row['mobile']; ?></td>
+                    <td><?php echo $row['email']; ?></td>
+                    <td><?php echo $row['visit_date']; ?></td>
+                    <td><?php echo $row['budget']; ?></td>
+                </tr>
+
+            <?php } ?>
+            </tbody>
 
             </table>
               
             </div>
-                -->
+               
              
 
             <!-- end of div -->
@@ -230,53 +220,9 @@
                document.getElementById(id).classList.add('show');
         }
 
-        //change user password
-        $(document).ready(function(){
-
-            $("#setting").submit(function(e){
-              e.preventDefault();
-              $.ajax({
-                type:"post",
-                url:"admin_password_ajax.php",
-                data:$("#setting").serialize()
-              })
-
-              .done(function(data){
-                $("#response").html(data);
-                // console.log("hello");
-              })
-
-              .fail(function(data){
-                $("#response").html(data);
-                // console.log("hi");
-              });
-
-             // $("#funding").find('input').val(" ");
-                
-            });
-
-        });
-        
-
-
        
 
-              
-
-
-        
-
-           
-
-
-
-
-
-
-        
-
-
-    </script>
+</script>
 </body>
 
 </html>

@@ -8,6 +8,7 @@ if(isset($_POST['add'])){
   // Collect form data
   $seller = trim($_POST['seller']) ?? "";
   $status = trim($_POST['status']) ?? "";
+  $propertyType = trim($_POST['prop_type']) ?? "";
   $cost = trim($_POST['cost']) ?? "";
   $location = trim($_POST['location']) ?? "";
   $witness = trim($_POST['witness']) ?? "";
@@ -19,6 +20,7 @@ if(isset($_POST['add'])){
 
     "seller" => $seller,
     "status" => $status,
+    "prop_type" => $propertyType,
     "cost" => $cost,
     "location" => $location,
     "witness" => $witness,
@@ -85,19 +87,41 @@ if(isset($_POST['add'])){
             </div>
 
             <div class="form-row">
+
                 <div class="col">
                      <div class="form-group">
-            <label for="exampleInputPassword1">Cost of Land</label>
-            <input type="text" class="form-control" name="cost" placeholder="Cost of land" required>
+            <label for="">Property Type</label>
+            <select class="form-control" name="prop_type">
+              <option>Type</option>
+              <option value="land">Land</option>
+              <option value="apartment">Apartment</option>
+              <option value="development">Development Property</option>
+              <option value="industry">Industrial</option>
+              <option value="retail">Retail</option>
+              <option value="commercial">Commercial</option>
+            </select>
+
+           
           </div>
                 </div>
 
-                <div>
+                <div class="col">
+                    <label>Property Value</label>
+                     <input type="text" class="form-control" name="cost" placeholder="Cost of land" required>
+
+                    
+                </div>
+
+                <div class="col">
+                  <div>
                      <div class="form-group">
             <label for="exampleInputPassword1">Site Plan</label>
             <input type="file" class="form-control-file" id="exampleFormControlFile1">
           </div>
+                </div>  
                 </div>
+
+                
                 
             </div>
 
@@ -112,7 +136,7 @@ if(isset($_POST['add'])){
             <div class="col">
                  <div class="form-group">
             <label for="exampleInputPassword1">Witness</label>
-            <input type="text" class="form-control" name="witness" placeholder="location">
+            <input type="text" class="form-control" name="witness" placeholder="witness">
           </div>
             </div>
              
@@ -121,7 +145,7 @@ if(isset($_POST['add'])){
            <div class="form-row">
             <div class="col">
                 <div class="form-group">
-            <label for="exampleInputPassword1">Land Size</label>
+            <label for="exampleInputPassword1">Property  Size</label>
             <input type="text" class="form-control" name="size" placeholder="Land size" required>
           </div>
  

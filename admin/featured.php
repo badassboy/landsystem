@@ -75,15 +75,15 @@
             </div>
 
             <ul class="list-unstyled components">
-                <p>LANDS</p>
+                <p>PROPERTY</p>
 
 
             <li>
-                <a href="#" id="appointment" data-target="one" class="test">Add land Info</a>
+                <a href="#" id="appointment" data-target="one" class="test">Add Property</a>
             </li>
 
             <li>
-                <a href="#" id="event" data-target="two" class="test">All land info</a>
+                <a href="#" id="event" data-target="two" class="test">Properties info</a>
             </li>
 
          

@@ -256,6 +256,7 @@ public function insertLandData(array $propertyData){
 	// Access individual parameters using array keys
 	$seller = $propertyData['seller'];
 	$status = $propertyData['status'];
+	$propertyType = $propertyData['prop_type'];
 	$cost = $propertyData['cost'];
 	$location = $propertyData['location'];
 	$witness = $propertyData['witness'];
@@ -264,8 +265,8 @@ public function insertLandData(array $propertyData){
 
 	$db=DB();
 
-	$stmt=$db->prepare("INSERT INTO land(seller,status,cost,location,witness,size,note) VALUES(?,?,?,?,?,?,?)");
-	$stmt->execute([$seller,$status,$cost,$location,$witness,$size,$note]);
+	$stmt=$db->prepare("INSERT INTO land(seller,status,propertyType,cost,location,witness,size,note) VALUES(?,?,?,?,?,?,?,?)");
+	$stmt->execute([$seller,$status,$propertyType,$cost,$location,$witness,$size,$note]);
 	$inserted = $stmt->rowCount();
 	if ($inserted) {
 		return true;
@@ -352,6 +353,140 @@ public function addPurchaseData(array $purchaseData){
 		return false;
 	}
 }
+
+// booking
+public function bookings(array $bookingData){
+
+	// Access individual parameters using array keys
+	$buyer = $bookingData['client'];
+	$property = $bookingData['property_type'];
+	$mobile = $bookingData['mobile'];
+	$email = $bookingData['email'];
+	$visit_date = $bookingData['visit_date'];
+	$budget = $bookingData['budget'];
+	$note = $bookingData['note'];
+
+	try{
+
+		$db=DB();
+
+	$stmt=$db->prepare("INSERT INTO booking(client,property,mobile,email,visit_date,
+		budget,note) VALUES(?,?,?,?,?,?,?)");
+	$stmt->execute([$buyer,$property,$mobile,$email,$visit_date,$budget,$note]);
+	$inserted = $stmt->rowCount();
+	if ($inserted) {
+		return true;
+	}else {
+		return false;
+	}
+
+	}catch(PDOException $ex){
+		return $ex->getMessage();
+	}
+
+	
+
+}
+
+// agencies
+public function agencies(array $agencyData){
+
+$fields = array('agent_company','mobile','email','note');
+foreach ($fields as $keys) {
+	if (!array_key_exists($keys, $agencyData)) {
+		return false;
+	}
+}
+
+	// Access individual parameters using array keys
+	$agent = $agencyData['agent_company'];
+	$mobile = $agencyData['mobile'];
+	$email = $agencyData['email'];
+	$note = $agencyData['note'];
+
+	try{
+
+		$db=DB();
+
+	$stmt=$db->prepare("INSERT INTO agent(agent,mobile,email,note) VALUES(?,?,?,?)");
+	$stmt->execute([$agent,$mobile,$email,$note]);
+	$inserted = $stmt->rowCount();
+	if ($inserted) {
+		return true;
+	}else {
+		return false;
+	}
+
+	}catch(PDOException $ex){
+		return $ex->getMessage();
+	}
+
+}
+
+// payment
+public function payment(array $paymentData){
+
+$fields = array("customer","paid","balance","note");
+	foreach ($fields as $keys) {
+		if (!array_key_exists($keys, $paymentData)) {
+			return false;
+		}
+	}
+
+	// Access individual parameters using array keys
+	$customer = $paymentData['customer'];
+	$amount_paid = $paymentData['paid'];
+	$balance = $paymentData['balance'];
+	$note = $paymentData['note'];
+
+	try{
+
+		$db=DB();
+
+	$stmt=$db->prepare("INSERT INTO payment(customer,paid,balance,note) VALUES(?,?,?,?)");
+	$stmt->execute([$customer,$amount_paid,$balance,$note]);
+	$inserted = $stmt->rowCount();
+	if ($inserted) {
+		return true;
+	}else {
+		return false;
+	}
+
+	}catch(PDOException $ex){
+		return $ex->getMessage();
+	}
+
+}
+
+
+// display all agent
+public function getAgent(){
+	try{
+		$db = DB();
+	$stmt =$db->prepare("SELECT * FROM agent");
+	$stmt->execute();
+	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $data;
+}catch(PDOException $ex){
+	return $ex->getMessage();
+}
+}
+
+	
+
+
+
+
+
+// display all booking
+public function getBooking(){
+	$db = DB();
+	$stmt =$db->prepare("SELECT * FROM booking");
+	$stmt->execute();
+	$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+	return $data;
+}
+
 
 
 
